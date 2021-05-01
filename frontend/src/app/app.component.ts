@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -15,14 +14,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.setTitle('Koni');
+    this.setTitle('Helachuchi');
   }
 
-  public static getSocketUrl(): string {
-    if (environment.production) {
-      return 'http://andreskonrad.herokuapp.com/socket';
-    } else {
-      return 'http://localhost:8080/socket';
-    }
-  }
 }
