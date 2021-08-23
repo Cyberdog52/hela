@@ -115,6 +115,14 @@ export class IngredientTableComponent implements OnInit {
     return amount.value + " " + this.amountSizeToName(amount.amountSize);
   }
 
+  editIngredient(id: number) {
+    const ingredient = this.recipe.ingredients[id];
+    this.newProductName = ingredient.product.name;
+    this.newAmountText = ""+ ingredient.amount.value;
+    this.newAmountSize = ingredient.amount.amountSize;
+    this.removeIngredient(id);
+  }
+
   removeIngredient(index: number) {
     this.recipe.ingredients.splice(index, 1);
     this.save();
@@ -159,4 +167,6 @@ export class IngredientTableComponent implements OnInit {
       case AmountSize.KL: return "Kaffeelöffel";
     }
   }
+
+
 }

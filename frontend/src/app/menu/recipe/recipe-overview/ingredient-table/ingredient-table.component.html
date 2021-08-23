@@ -5,6 +5,7 @@
     <tr>
       <th>Zutaten</th>
       <th>Anzahl</th>
+      <th *ngIf="edit">Ändern</th>
       <th *ngIf="edit">Löschen</th>
     </tr>
     <tr *ngFor="let ingredient of this.recipe.ingredients; let id = index">
@@ -13,6 +14,11 @@
       </td>
       <td width="40%">
         <a>{{getAmountString(ingredient.amount)}}</a>
+      </td>
+      <td *ngIf="edit">
+          <span>
+            <button class="blue-button" type="button" mat-button="" (click)="editIngredient(id)"><mat-icon>edit</mat-icon></button>
+          </span>
       </td>
       <td *ngIf="edit">
           <span>
