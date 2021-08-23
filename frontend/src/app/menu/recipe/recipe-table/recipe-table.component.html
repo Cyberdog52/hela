@@ -3,7 +3,7 @@
     Rezepte
     <mat-icon> fastfood</mat-icon>
   </mat-card-title>
-  <mat-card-content>
+  <mat-card-content *ngIf="!isLoading">
     <table mat-table [dataSource]="getRecipes()" class="mat-elevation-z8">
 
       <ng-container matColumnDef="image">
@@ -57,7 +57,11 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </mat-card-content>
-  <mat-card-actions><button class="green-button" mat-raised-button (click)="createRecipe()"><mat-icon>add_circle_outline</mat-icon><mat-icon>fastfood</mat-icon></button></mat-card-actions>
+  <mat-card-content *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions *ngIf="!isLoading"><button class="green-button" mat-raised-button (click)="createRecipe()"><mat-icon>add_circle_outline</mat-icon><mat-icon>fastfood</mat-icon></button></mat-card-actions>
 </mat-card>
+
 
 

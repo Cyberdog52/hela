@@ -21,7 +21,10 @@ export class RecipeTableComponent implements OnInit {
 
   displayedColumns: string[] = [ 'name', 'image','numberOfPeople','ingredientCount', 'stepCount', 'view','edit', 'delete' ];
 
+  isLoading: boolean;
+
   ngOnInit() {
+    this.isLoading = true;
     this.loadAllRecipes();
   }
 
@@ -64,6 +67,7 @@ export class RecipeTableComponent implements OnInit {
   loadRecipe(id: number): void {
     this.recipeService.loadRecipe(id).subscribe(recipe => {
       this.recipes.set(id, recipe);
+      this.isLoading = false;
     });
   }
 

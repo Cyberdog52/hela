@@ -17,7 +17,10 @@ export class MenuTableComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'recipeCount', 'edit', 'delete', ];
 
+  isLoading: boolean;
+
   ngOnInit() {
+    this.isLoading = true;
     this.loadAllMenus();
   }
 
@@ -71,6 +74,7 @@ export class MenuTableComponent implements OnInit {
   loadMenu(id: number): void {
     this.menuService.loadMenu(id).subscribe(menu => {
       this.menus.set(id, menu);
+      this.isLoading = false;
     });
   }
 

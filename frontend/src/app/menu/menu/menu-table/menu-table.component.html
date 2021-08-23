@@ -3,7 +3,7 @@
     Menus
     <mat-icon>restaurant_menu</mat-icon>
   </mat-card-title>
-  <mat-card-content>
+  <mat-card-content *ngIf="!isLoading">
 
     <table mat-table [dataSource]="getMenus()" class="mat-elevation-z8">
 
@@ -34,9 +34,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="!isLoading">
     <button class="green-button" mat-raised-button (click)="createMenu()"><mat-icon>add_circle_outline</mat-icon><mat-icon>restaurant_menu</mat-icon></button>
   </mat-card-actions>
+  <mat-card-content *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </mat-card-content>
 </mat-card>
 
 
