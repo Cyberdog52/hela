@@ -16,7 +16,7 @@ public class Recipe implements Serializable {
     private String title;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
     private List<Ingredient> ingredients = new ArrayList<>();
 
     @ElementCollection

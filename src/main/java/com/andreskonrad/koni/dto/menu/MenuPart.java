@@ -12,7 +12,7 @@ public class MenuPart implements Serializable {
     @GeneratedValue
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Recipe recipe;
 
     @Column
