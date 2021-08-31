@@ -17,7 +17,6 @@ public class Ingredient implements Serializable {
     private long id;
 
     @ManyToOne
-    @Cascade(value= org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
     private Product product;
 
     @Column

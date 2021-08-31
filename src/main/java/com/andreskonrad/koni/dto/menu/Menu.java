@@ -17,7 +17,7 @@ public class Menu implements Serializable {
     @Column
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<MenuPart> menuParts = new ArrayList<>();
 
     //for jpa and json deserialization
